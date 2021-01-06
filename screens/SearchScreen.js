@@ -30,7 +30,7 @@ export default class Searchscreen extends React.Component {
       })
     }
       else if(enteredText[0].toUpperCase() === 'S'){
-        const query = await db.collection("transactions").where('bookId','==',text).startAfter(this.state.lastVisibleTransaction).limit(10).get()
+        const query = await db.collection("transactions").where('studentId','==',text).startAfter(this.state.lastVisibleTransaction).limit(10).get()
         query.docs.map((doc)=>{
           this.setState({
             allTransactions: [...this.state.allTransactions, doc.data()],
